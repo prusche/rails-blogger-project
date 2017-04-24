@@ -7,6 +7,8 @@ class ArticlesController < ApplicationController
 
   def show #page for each individual article, see show.html.erb
     @article = Article.find(params[:id])
+    @comment = Comment.new
+    @comment.article_id = @article.id
   end
 
   def new #page for creating a new article, see new.html.erb
