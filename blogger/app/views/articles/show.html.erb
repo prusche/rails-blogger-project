@@ -6,6 +6,12 @@
   <% end %>
 </p><br>
 
+<p>
+  <% if @article.image.exists? %>
+    <%= image_tag @article.image.url(:medium) %>
+  <% end %>
+</p>
+
 <p><%= @article.body %></p><br>
 
 <p><%= link_to "edit", edit_article_path(@article) %></p>
