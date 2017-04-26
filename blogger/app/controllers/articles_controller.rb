@@ -1,6 +1,8 @@
 class ArticlesController < ApplicationController
   include ArticlesHelper #adds article_parms to fix the problems with params; added via private in the other tutorial
 
+  before_filter :require_login, except: [:index, :show]
+
   def index #main page with the list of all articles, see index.html.erb
     @articles = Article.all
   end

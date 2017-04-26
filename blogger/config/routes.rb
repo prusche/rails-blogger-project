@@ -4,4 +4,10 @@ Rails.application.routes.draw do
     resources :comments #create article_comments_path
   end
   resources :tags #create a tag_path
+  resources :authors
+
+  resources :author_sessions, only: [ :new, :create, :destroy ]
+
+  get 'login' => 'author_sessions#new'
+  get 'logout' => 'author_sessions#destroy'
 end
